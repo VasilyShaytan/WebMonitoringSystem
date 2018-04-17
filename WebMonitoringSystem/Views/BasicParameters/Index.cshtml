@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebMonitoringSystem.Models.BasicParameter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PGN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PGL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Acronym)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SPNName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SPNNameRu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataRange)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataSource)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PGN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PGL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acronym)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SPNName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SPNNameRu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSource)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BasicParameterID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BasicParameterID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BasicParameterID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

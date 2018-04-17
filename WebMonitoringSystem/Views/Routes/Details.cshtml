@@ -1,0 +1,36 @@
+﻿@model WebMonitoringSystem.Models.Route
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Route</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VehicleID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CoordinateLatitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CoordinateLatitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CoordinateLongitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CoordinateLongitude)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RouteID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

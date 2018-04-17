@@ -1,0 +1,19 @@
+﻿@model WebMonitoringSystem.ViewModels.SelectExampleViewModels
+@{
+    ViewData["Title"] = "Map";
+    Layout = "_Server";
+}
+
+
+@*<div id="google_map"></div>*@
+@*<div>
+        <select id="unit_vehicles">
+            <option value="111">FIRST</option>
+            <option value="222">SECOND</option>
+        </select>
+    </div>*@
+
+@Html.DropDownListFor(model => model.ViewModels, new SelectList(Model.ViewModels, "Id", "Name"))
+@Html.DropDownListFor(model => model.ViewModels2, new SelectList(Model.ViewModels, "Id", "Name"))
+
+

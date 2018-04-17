@@ -1,0 +1,34 @@
+﻿@model WebMonitoringSystem.ViewModels.VehicleGroupViewModels
+
+@{
+    ViewData["Title"] = "CarPark Page";
+    Layout = "_Server";
+}
+
+<br />
+
+
+<b>Группа ТС:</b>
+<br />
+@Html.DropDownListFor(m => m.VehicleGroupViewModelList, new SelectList(Model.VehicleGroupViewModelList, "Id", "Name"), new { onchange = "on_unit_changed();" })
+<br />
+<select id="VehicleGroupTempList" multiple>
+    @{
+        foreach (var item in Model.VehicleGroupViewModelList)
+        {
+            <option value="item.Id">
+                item.Name;
+            </option>
+        }
+    }
+
+</select>
+@{ 
+    
+}
+<!--<select id="VehicleGroupTempList" multiple size="10"></select>-->
+<br />
+<input id="carpark_vehicle_group_create" type="button" value="Создать группу ТС" />
+
+
+

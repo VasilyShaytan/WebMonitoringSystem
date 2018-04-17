@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+</head>
+<body onload="init_map('ru');">
+    <br />
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebMonitoringSystem</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Server" asp-action="Index">Главная</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Автопарк <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="CarPark" asp-action="Index" id="carpark_administrator">Администратор</a></li>
+                            <li><a asp-area="" asp-controller="CarPark" asp-action="Index" id="carpark_registration_vehicle">Регистрация ТС</a></li>
+                            <li><a href="#">Просмотр</a></li>
+                            <li><a asp-area="" asp-controller="CarPark" asp-action="VehicleGroup" id="carpark_vehicle_group">ТС / Группы ТС</a></li>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="#">Маршрутные листы</a></li>
+                            <li><a href="#">Тахограф</a></li>
+                            <li><a href="#">Уведомления</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Отчеты <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Рейсы</a></li>
+                            <li><a href="#">Топливо</a></li>
+                            <li><a href="#">Грузы</a></li>
+                            <li><a href="#">Группы ТС</a></li>
+                            <li><a href="#">Посещение геозон</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Диагностика <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">История обслуживания</a></li>
+                            <li><a href="#">Давление в шинах</a></li>
+                            <li><a href="#">Износ колодок</a></li>
+                            <li><a href="#">Уровень масла</a></li>
+                            <li><a href="#">Моторное масло</a></li>
+                            <li><a href="#">Охлаждающая жидкость</a></li>
+                            <li><a href="#">Амортизаторы</a></li>
+                            <li><a href="#">Вес автопоезда</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Оценка водителя <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Общая оценка</a></li>
+                            <li><a href="#">Оптимизация вождения</a></li>
+                            <li><a href="#">Рекомендации</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Карты <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Проигрыватель</a></li>
+                            <li><a href="#">Геозоны</a></li>
+                            <li><a href="#">Проишествия</a></li>
+                        </ul>
+                    </li>
+                    <li><a>ПФСВ</a></li>
+                    <li><a>Помощь</a></li>
+                    <li><a asp-area="" asp-controller="Server" asp-action="Map">Map</a></li>
+                    <!--<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+    <li><a asp-area="" asp-controller="BasicParameters" asp-action="Index">BasicParameters</a></li>
+    <li><a asp-area="" asp-controller="Vehicles" asp-action="Index">Vehicles</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div id="google_map" style="position:absolute; right:10px;"></div>
+        <div style="padding:10px 10px 10px 10px">
+            @RenderBody()
+        </div>
+
+        @*@RenderSection("Navigation", false)
+        @RenderSection("GoogleMap", false)*@
+    </div>
+
+    <environment include="Development">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEPlv_nJp7Qam4zdvQ6z0SJT3ls06bvCE"></script>
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

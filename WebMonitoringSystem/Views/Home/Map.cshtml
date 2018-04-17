@@ -1,0 +1,22 @@
+﻿@model WebMonitoringSystem.SelectExampleViewModel.SelectExampleViewModels
+@{
+    ViewData["Title"] = "Map";
+    Layout = "_Map";
+}
+
+
+<!--<div id="google_map"></div>-->
+@*<div>
+        <select id="unit_vehicles">
+            <option value="111">FIRST</option>
+            <option value="222">SECOND</option>
+        </select>
+    </div>*@
+@Html.DropDownListFor(model => model.ViewModels, new MultiSelectList(Model.ViewModels, "Id", "Name"), new { multiple = "multiple", size = "10" })
+@Html.DropDownListFor(model => model.ViewModels2, new SelectList(Model.ViewModels, "Id", "Name"))
+
+
+@*@foreach (var item in Model.ViewModels.Where(p=>p.Id == 4)
+    { 
+        
+    }*@

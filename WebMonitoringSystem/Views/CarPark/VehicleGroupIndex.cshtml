@@ -1,0 +1,29 @@
+﻿@model WebMonitoringSystem.ViewModels.VehicleViewModels
+
+@{
+    ViewData["Title"] = "Vehicle group Page";
+}
+<br />
+@using (Html.BeginForm())
+{
+    <b>Имя:</b>
+    <input type="text" size="50" name="vehicle_group_name" />
+    <br />
+    @Html.DropDownListFor(model => model.VehicleViewModelList, new MultiSelectList(Model.VehicleViewModelList, "Id", "Mark"), new { multiple = "multiple", size = "10" })
+
+    <input id="vehicle_group_move" type="button" value=">>" onclick="vehicleMove('VehicleViewModelList', 'VehicleTempList');" />
+    <select id="VehicleTempList" multiple size="10"></select>
+
+    <input type="hidden" name="VehicleViewModelList" id="VehicleViewModelList" value="">
+    <input type="hidden" name="VehicleTempList" id="VehicleTempList" value="">
+    <p><input type="submit" value="Создать" /></p>
+}
+
+
+@*@Html.DropDownListFor(model => model..Mark, new MultiSelectList(Model.Vehicle, "Id", "Name"), new { multiple = "multiple", size = "10" })*@
+@*@using (Html.BeginForm())
+    {
+        @Html.ListBox("countries",
+                    new MultiSelectList( new string[] { "Россия", "США", "Китай", "Индия" }))
+        <p><input type="submit" value="Отправить" /></p>
+    }*@

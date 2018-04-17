@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebMonitoringSystem.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="RegistrationVehicleCreate">Create New Vehicle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mark)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark)
+                </td>
+                <td>
+                    <a asp-action="RegistrationVehicleEdit" asp-route-id="@item.VehicleID">Edit</a> |
+                    <a asp-action="RegistrationVehicleDetails" asp-route-id="@item.VehicleID">Details</a> |
+                    <a asp-action="RegistrationVehicleDelete" asp-route-id="@item.VehicleID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

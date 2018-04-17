@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "CarPark Page";
+    Layout = "_Server";
+}
+
+
+Регистрация
+@using (Html.BeginForm("Registration", "CarPark", FormMethod.Post))
+{
+    <input type="hidden" value ="@ViewBag.BookID" name="BookID"/>
+    <table>
+        <tr>
+            <td><p>Введите свое имя</p></td>
+            <td>@Html.TextBox("Person", "Введите имя")</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Отправить" /></td>
+        </tr>
+    </table>
+}
+<!-- <button id="NewBrowserBtn">New Browser</button>-->

@@ -1,0 +1,60 @@
+﻿@model WebMonitoringSystem.Models.BasicParameter
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BasicParameter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PGN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PGN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PGL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PGL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Acronym)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Acronym)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SPNName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SPNName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SPNNameRu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SPNNameRu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRange)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataRange)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSource)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataSource)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BasicParameterID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

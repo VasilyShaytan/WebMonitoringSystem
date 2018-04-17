@@ -1,0 +1,55 @@
+﻿@model WebMonitoringSystem.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Vehicle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RegistrationVehicleCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Mark" class="control-label"></label>
+                <input asp-for="Mark" class="form-control" />
+                <span asp-validation-for="Mark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModelType" class="control-label"></label>
+                <input asp-for="ModelType" class="form-control" />
+                <span asp-validation-for="ModelType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="СarryingСapacity" class="control-label"></label>
+                <input asp-for="СarryingСapacity" class="form-control" />
+                <span asp-validation-for="СarryingСapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YearIssue" class="control-label"></label>
+                <input asp-for="YearIssue" class="form-control" />
+                <span asp-validation-for="YearIssue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsefulVolume" class="control-label"></label>
+                <input asp-for="UsefulVolume" class="form-control" />
+                <span asp-validation-for="UsefulVolume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleType" class="control-label"></label>
+                <input asp-for="VehicleType" class="form-control" />
+                <span asp-validation-for="VehicleType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverallDimensions" class="control-label"></label>
+                <input asp-for="OverallDimensions" class="form-control" />
+                <span asp-validation-for="OverallDimensions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebMonitoringSystem.Models.Route>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.VehicleID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoordinateLatitude)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoordinateLongitude)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinateLatitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoordinateLongitude)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RouteID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RouteID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RouteID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

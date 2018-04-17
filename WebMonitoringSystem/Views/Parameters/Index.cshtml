@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebMonitoringSystem.Models.Parameter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.VehicleID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BasicParameterID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BasicParameterValue)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BasicParameterTimeValue)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicParameterID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicParameterValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicParameterTimeValue)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ParameterID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ParameterID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ParameterID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
